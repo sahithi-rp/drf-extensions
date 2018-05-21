@@ -2024,7 +2024,7 @@ postfix from header:
 Don't forget to add this middleware in your settings before `GZipMiddleware`:
 
     # settings.py
-    MIDDLEWARE_CLASSES = (
+    MIDDLEWARE = (
         ...
         'yourapp.RemoveEtagGzipPostfix',
         'django.middleware.gzip.GZipMiddleware',

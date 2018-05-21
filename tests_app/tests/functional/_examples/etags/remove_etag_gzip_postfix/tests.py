@@ -5,7 +5,7 @@ from django.test import TestCase, override_settings
 @override_settings(ROOT_URLCONF='tests_app.tests.functional.examples.etags.remove_etag_gzip_postfix.urls')
 class RemoveEtagGzipPostfixTest(TestCase):
 
-    @override_settings(MIDDLEWARE_CLASSES=(
+    @override_settings(MIDDLEWARE=(
         'django.middleware.gzip.GZipMiddleware',
         'django.middleware.common.CommonMiddleware'
     ))
@@ -16,7 +16,7 @@ class RemoveEtagGzipPostfixTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['ETag'], '"etag_value;gzip"')
 
-    @override_settings(MIDDLEWARE_CLASSES=(
+    @override_settings(MIDDLEWARE=(
         'tests_app.tests.functional.examples.etags.remove_etag_gzip_postfix.middleware.RemoveEtagGzipPostfix',
         'django.middleware.gzip.GZipMiddleware',
         'django.middleware.common.CommonMiddleware'

@@ -2577,7 +2577,7 @@ class RemoveEtagGzipPostfix(object):
 <p>Don't forget to add this middleware in your settings before <code>GZipMiddleware</code>:</p>
 
 <pre><code># settings.py
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     ...
     'yourapp.RemoveEtagGzipPostfix',
     'django.middleware.gzip.GZipMiddleware',
